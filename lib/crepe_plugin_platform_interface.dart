@@ -23,7 +23,23 @@ abstract class CrepePluginPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+  Future<String?> echo(String value) {
+    throw UnimplementedError('echo() has not been implemented.');
+  }
+
+  Future<void> startAccessibilityService() {
+    throw UnimplementedError('startAccessibilityService() has not been implemented.');
+  }
+
+  Future<void> stopAccessibilityService() {
+    throw UnimplementedError('stopAccessibilityService() has not been implemented.');
+  }
+
+  Future<String?> getAccessibilityData() {
+    throw UnimplementedError('getAccessibilityData() has not been implemented.');
+  }
+
+  Future<void> openAccessibilitySettings() {
+    throw UnimplementedError('openAccessibilitySettings() has not been implemented.');
   }
 }

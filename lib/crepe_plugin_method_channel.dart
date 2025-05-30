@@ -10,8 +10,29 @@ class MethodChannelCrepePlugin extends CrepePluginPlatform {
   final methodChannel = const MethodChannel('crepe_plugin');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<String?> echo(String value) async {
+    final result = await methodChannel.invokeMethod<String>('echo', {'value': value});
+    return result;
+  }
+
+  @override
+  Future<void> startAccessibilityService() async {
+    await methodChannel.invokeMethod('startAccessibilityService');
+  }
+
+  @override
+  Future<void> stopAccessibilityService() async {
+    await methodChannel.invokeMethod('stopAccessibilityService');
+  }
+
+  @override
+  Future<String?> getAccessibilityData() async {
+    final result = await methodChannel.invokeMethod<String>('getAccessibilityData');
+    return result;
+  }
+
+  @override
+  Future<void> openAccessibilitySettings() async {
+    await methodChannel.invokeMethod('openAccessibilitySettings');
   }
 }
